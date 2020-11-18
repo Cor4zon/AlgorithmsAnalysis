@@ -1,0 +1,36 @@
+пустые строки
+"" "bingo"          5 5 5
+"bingo" ""          5 5 5
+"" ""               0 0 0
+
+удаление
+"bing" "bingo"      1 1 1
+"ingo" "bingo"      1 1 1
+"bino" "bingo"      1 1 1
+"bingo" "ing"       2 2 2
+
+вставка
+"bing" "bingo"      1 1 1
+"ingo" "bingo"      1 1 1
+"bngo"  "bingo"     1 1 1
+"bi"    "bingo"     3 3 3
+
+замена
+"binvo" "bingo"     1 1 1
+"binga" "bingo"     1 1 1
+"vingo" "bingo"     1 1 1
+"bxxgo" "bingo"     2 2 2
+
+транспонирование
+"binog" "bingo"     2 2 1
+"ibnog" "bingo"     4 4 2
+
+всавка и удаление
+"vbing" "bingo"     2 2 2
+"boing" "bingo"     2 2 2
+
+вставка и замена
+"ving" "bingo"      2 2 2
+
+удаление и замена
+"bingaa" "bingo"    2 2 2
