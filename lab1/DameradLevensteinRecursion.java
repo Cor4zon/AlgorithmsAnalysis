@@ -1,5 +1,3 @@
-package com.company;
-
 public class DameradLevensteinRecursion {
     static int getEditDistance(String stringOne, String stringTwo) {
         int lengthOne = stringOne.length();

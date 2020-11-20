@@ -1,4 +1,3 @@
-package com.company;
 
 import java.util.Random;
 
@@ -10,12 +9,10 @@ public class Main {
 //        testDameradLevenstein();
 //        testDameradLevensteinRecurion();
 
-
-
+            memoryChecker();
 //        String myString = generateRandomString(5);
 //        System.out.println(myString);
-
-        System.out.println(timeCheckerLevensterin());
+//        timeCheckerOneWord();
     }
 
     static void testLevenstein() {
@@ -201,7 +198,7 @@ public class Main {
 
         // test 1.
         // String 1 is empty
-        if (LevenstainMatrix.levenshtein("", "bingo") != 5){
+        if (LevenstainMatrix.getEditDistance("", "bingo") != 5){
             System.out.println("TEST 1: FAILED");
         }
         else
@@ -209,7 +206,7 @@ public class Main {
 
         // test 2.
         // String 2 is empty
-        if (LevenstainMatrix.levenshtein("bingo", "") != 5){
+        if (LevenstainMatrix.getEditDistance("bingo", "") != 5){
             System.out.println("TEST 2: FAILED");
         }
         else
@@ -217,7 +214,7 @@ public class Main {
 
         // test 3.
         // Both strings are empty
-        if (LevenstainMatrix.levenshtein("", "") != 0){
+        if (LevenstainMatrix.getEditDistance("", "") != 0){
             System.out.println("TEST 3: FAILED");
         }
         else
@@ -225,7 +222,7 @@ public class Main {
 
         // test 4.
         // Delete 1 symbol from the end
-        if (LevenstainMatrix.levenshtein("bing", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("bing", "bingo") != 1){
             System.out.println("TEST 4: FAILED");
         }
         else
@@ -233,7 +230,7 @@ public class Main {
 
         // test 5.
         // Delete 1 symbol from the begging
-        if (LevenstainMatrix.levenshtein("ingo", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("ingo", "bingo") != 1){
             System.out.println("TEST 5: FAILED");
         }
         else
@@ -241,7 +238,7 @@ public class Main {
 
         // test 6.
         // Delete 1 symbol from random position
-        if (LevenstainMatrix.levenshtein("bino", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("bino", "bingo") != 1){
             System.out.println("TEST 6: FAILED");
         }
         else
@@ -249,7 +246,7 @@ public class Main {
 
         // test 7.
         // Delete symbols from the end and from the begging
-        if (LevenstainMatrix.levenshtein("bingo", "ing") != 2){
+        if (LevenstainMatrix.getEditDistance("bingo", "ing") != 2){
             System.out.println("TEST 7: FAILED");
         }
         else
@@ -257,7 +254,7 @@ public class Main {
 
         // test 8.
         // Insert symbol in the end
-        if (LevenstainMatrix.levenshtein("bing", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("bing", "bingo") != 1){
             System.out.println("TEST 8: FAILED");
         }
         else
@@ -265,7 +262,7 @@ public class Main {
 
         // test 9.
         // Insert symbol in the begging
-        if (LevenstainMatrix.levenshtein("ingo", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("ingo", "bingo") != 1){
             System.out.println("TEST 9: FAILED");
         }
         else
@@ -273,7 +270,7 @@ public class Main {
 
         // test 10.
         // Insert symbol in random position
-        if (LevenstainMatrix.levenshtein("bngo", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("bngo", "bingo") != 1){
             System.out.println("TEST 10: FAILED");
         }
         else
@@ -282,7 +279,7 @@ public class Main {
 
         // test 11.
         // Insert 3 symbols
-        if (LevenstainMatrix.levenshtein("bi", "bingo") != 3){
+        if (LevenstainMatrix.getEditDistance("bi", "bingo") != 3){
             System.out.println("TEST 11: FAILED");
         }
         else
@@ -290,7 +287,7 @@ public class Main {
 
         // test 12.
         // Change symbol
-        if (LevenstainMatrix.levenshtein("binvo", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("binvo", "bingo") != 1){
             System.out.println("TEST 12: FAILED");
         }
         else
@@ -298,7 +295,7 @@ public class Main {
 
         // test 13.
         // Change symbol in the end
-        if (LevenstainMatrix.levenshtein("binga", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("binga", "bingo") != 1){
             System.out.println("TEST 13: FAILED");
         }
         else
@@ -306,7 +303,7 @@ public class Main {
 
         // test 14.
         // Change symbol in the begging
-        if (LevenstainMatrix.levenshtein("vingo", "bingo") != 1){
+        if (LevenstainMatrix.getEditDistance("vingo", "bingo") != 1){
             System.out.println("TEST 14: FAILED");
         }
         else
@@ -314,7 +311,7 @@ public class Main {
 
         // test 15.
         // Change 2 symbols in random positions
-        if (LevenstainMatrix.levenshtein("bxxgo", "bingo") != 2){
+        if (LevenstainMatrix.getEditDistance("bxxgo", "bingo") != 2){
             System.out.println("TEST 15: FAILED");
         }
         else
@@ -322,7 +319,7 @@ public class Main {
 
         // test 16.
         // Transposition
-        if (LevenstainMatrix.levenshtein("binog", "bingo") != 2){
+        if (LevenstainMatrix.getEditDistance("binog", "bingo") != 2){
             System.out.println("TEST 16: FAILED");
         }
         else
@@ -330,7 +327,7 @@ public class Main {
 
         // test 17.
         // Transposition
-        if (LevenstainMatrix.levenshtein("ibnog", "bingo") != 4){
+        if (LevenstainMatrix.getEditDistance("ibnog", "bingo") != 4){
             System.out.println("TEST 17: FAILED");
         }
         else
@@ -338,7 +335,7 @@ public class Main {
 
         // test 18.
         // Insert and Delete
-        if (LevenstainMatrix.levenshtein("vbing", "bingo") != 2){
+        if (LevenstainMatrix.getEditDistance("vbing", "bingo") != 2){
             System.out.println("TEST 18: FAILED");
         }
         else
@@ -346,7 +343,7 @@ public class Main {
 
         // test 19.
         // Insert and Delete
-        if (LevenstainMatrix.levenshtein("boing", "bingo") != 2){
+        if (LevenstainMatrix.getEditDistance("boing", "bingo") != 2){
             System.out.println("TEST 19: FAILED");
         }
         else
@@ -354,7 +351,7 @@ public class Main {
 
         // test 20.
         // Insert and change
-        if (LevenstainMatrix.levenshtein("ving", "bingo") != 2){
+        if (LevenstainMatrix.getEditDistance("ving", "bingo") != 2){
             System.out.println("TEST 20: FAILED");
         }
         else
@@ -362,7 +359,7 @@ public class Main {
 
         // test 21.
         // Delete and change
-        if (LevenstainMatrix.levenshtein("bingaa", "bingo") != 2){
+        if (LevenstainMatrix.getEditDistance("bingaa", "bingo") != 2){
             System.out.println("TEST 21: FAILED");
         }
         else
@@ -375,7 +372,7 @@ public class Main {
 
         // test 1.
         // String 1 is empty
-        if (DameradLevenstein.calculateDistance("", "bingo") != 5){
+        if (DameradLevenstein.getEditDistance("", "bingo") != 5){
             System.out.println("TEST 1: FAILED");
         }
         else
@@ -383,7 +380,7 @@ public class Main {
 
         // test 2.
         // String 2 is empty
-        if (DameradLevenstein.calculateDistance("bingo", "") != 5){
+        if (DameradLevenstein.getEditDistance("bingo", "") != 5){
             System.out.println("TEST 2: FAILED");
         }
         else
@@ -391,7 +388,7 @@ public class Main {
 
         // test 3.
         // Both strings are empty
-        if (DameradLevenstein.calculateDistance("", "") != 0){
+        if (DameradLevenstein.getEditDistance("", "") != 0){
             System.out.println("TEST 3: FAILED");
         }
         else
@@ -399,7 +396,7 @@ public class Main {
 
         // test 4.
         // Delete 1 symbol from the end
-        if (DameradLevenstein.calculateDistance("bing", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("bing", "bingo") != 1){
             System.out.println("TEST 4: FAILED");
         }
         else
@@ -407,7 +404,7 @@ public class Main {
 
         // test 5.
         // Delete 1 symbol from the begging
-        if (DameradLevenstein.calculateDistance("ingo", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("ingo", "bingo") != 1){
             System.out.println("TEST 5: FAILED");
         }
         else
@@ -415,7 +412,7 @@ public class Main {
 
         // test 6.
         // Delete 1 symbol from random position
-        if (DameradLevenstein.calculateDistance("bino", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("bino", "bingo") != 1){
             System.out.println("TEST 6: FAILED");
         }
         else
@@ -423,7 +420,7 @@ public class Main {
 
         // test 7.
         // Delete symbols from the end and from the begging
-        if (DameradLevenstein.calculateDistance("bingo", "ing") != 2){
+        if (DameradLevenstein.getEditDistance("bingo", "ing") != 2){
             System.out.println("TEST 7: FAILED");
         }
         else
@@ -431,7 +428,7 @@ public class Main {
 
         // test 8.
         // Insert symbol in the end
-        if (DameradLevenstein.calculateDistance("bing", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("bing", "bingo") != 1){
             System.out.println("TEST 8: FAILED");
         }
         else
@@ -439,7 +436,7 @@ public class Main {
 
         // test 9.
         // Insert symbol in the begging
-        if (DameradLevenstein.calculateDistance("ingo", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("ingo", "bingo") != 1){
             System.out.println("TEST 9: FAILED");
         }
         else
@@ -447,7 +444,7 @@ public class Main {
 
         // test 10.
         // Insert symbol in random position
-        if (DameradLevenstein.calculateDistance("bngo", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("bngo", "bingo") != 1){
             System.out.println("TEST 10: FAILED");
         }
         else
@@ -456,7 +453,7 @@ public class Main {
 
         // test 11.
         // Insert 3 symbols
-        if (DameradLevenstein.calculateDistance("bi", "bingo") != 3){
+        if (DameradLevenstein.getEditDistance("bi", "bingo") != 3){
             System.out.println("TEST 11: FAILED");
         }
         else
@@ -464,7 +461,7 @@ public class Main {
 
         // test 12.
         // Change symbol
-        if (DameradLevenstein.calculateDistance("binvo", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("binvo", "bingo") != 1){
             System.out.println("TEST 12: FAILED");
         }
         else
@@ -472,7 +469,7 @@ public class Main {
 
         // test 13.
         // Change symbol in the end
-        if (DameradLevenstein.calculateDistance("binga", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("binga", "bingo") != 1){
             System.out.println("TEST 13: FAILED");
         }
         else
@@ -480,7 +477,7 @@ public class Main {
 
         // test 14.
         // Change symbol in the begging
-        if (DameradLevenstein.calculateDistance("vingo", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("vingo", "bingo") != 1){
             System.out.println("TEST 14: FAILED");
         }
         else
@@ -488,7 +485,7 @@ public class Main {
 
         // test 15.
         // Change 2 symbols in random positions
-        if (DameradLevenstein.calculateDistance("bxxgo", "bingo") != 2){
+        if (DameradLevenstein.getEditDistance("bxxgo", "bingo") != 2){
             System.out.println("TEST 15: FAILED");
         }
         else
@@ -496,7 +493,7 @@ public class Main {
 
         // test 16.
         // Transposition
-        if (DameradLevenstein.calculateDistance("binog", "bingo") != 1){
+        if (DameradLevenstein.getEditDistance("binog", "bingo") != 1){
             System.out.println("TEST 16: FAILED");
         }
         else
@@ -504,7 +501,7 @@ public class Main {
 
         // test 17.
         // Transposition
-        if (DameradLevenstein.calculateDistance("ibnog", "bingo") != 2){
+        if (DameradLevenstein.getEditDistance("ibnog", "bingo") != 2){
             System.out.println("TEST 17: FAILED");
         }
         else
@@ -512,7 +509,7 @@ public class Main {
 
         // test 18.
         // Insert and Delete
-        if (DameradLevenstein.calculateDistance("vbing", "bingo") != 2){
+        if (DameradLevenstein.getEditDistance("vbing", "bingo") != 2){
             System.out.println("TEST 18: FAILED");
         }
         else
@@ -520,7 +517,7 @@ public class Main {
 
         // test 19.
         // Insert and Delete
-        if (DameradLevenstein.calculateDistance("boing", "bingo") != 2){
+        if (DameradLevenstein.getEditDistance("boing", "bingo") != 2){
             System.out.println("TEST 19: FAILED");
         }
         else
@@ -528,7 +525,7 @@ public class Main {
 
         // test 20.
         // Insert and change
-        if (DameradLevenstein.calculateDistance("ving", "bingo") != 2){
+        if (DameradLevenstein.getEditDistance("ving", "bingo") != 2){
             System.out.println("TEST 20: FAILED");
         }
         else
@@ -536,7 +533,7 @@ public class Main {
 
         // test 21.
         // Delete and change
-        if (DameradLevenstein.calculateDistance("bingaa", "bingo") != 2){
+        if (DameradLevenstein.getEditDistance("bingaa", "bingo") != 2){
             System.out.println("TEST 21: FAILED");
         }
         else
@@ -735,7 +732,7 @@ public class Main {
         return output;
     }
 
-    static double timeCheckerLevensterin() {
+    static double timeCheckerDifferentWords() {
         //System.nanoTime()
         int mesurmentNumber = 100;
         double resultTime = 0;
@@ -752,8 +749,8 @@ public class Main {
                 stringDestination = generateRandomString(stringSize);
                 time_begin = System.nanoTime();
 //                Levenstain.getEditDistance(stringSource, stringDestination);
-//                LevenstainMatrix.levenshtein(stringSource, stringDestination);
-                DameradLevenstein.calculateDistance(stringSource, stringDestination);
+//                DameradLevenstein.getEditDistance(stringSource, stringDestination);
+                LevenstainMatrix.getEditDistance(stringSource, stringDestination);
 //                DameradLevensteinRecursion.getEditDistance(stringSource, stringDestination);
                 time_finish = System.nanoTime();
                 resultTime += time_finish - time_begin;
@@ -763,4 +760,81 @@ public class Main {
         }
         return 0;
     }
+
+    static String doubleString(String text) {
+        return text + text;
+    }
+
+    static void timeCheckerOneWord() {
+        double time_begin, time_ending;
+        int mesurmentNumber = 100;
+        int resultTimeLevenstein = 0;
+        int resultTimeDamerad = 0;
+
+        String stringSource = "Dragon bal";
+        String stringDestination = "Dragan bla";
+
+//        System.out.println("string A: " + stringSource);
+//        System.out.println("string B: " + stringDestination);
+        System.out.println(stringSource.length());
+
+        for (int i = 0; i < mesurmentNumber; i++) {
+            time_begin = System.nanoTime();
+            Levenstain.getEditDistance(stringSource, stringDestination);
+            time_ending = System.nanoTime();
+            resultTimeLevenstein += time_ending - time_begin;
+
+            time_begin = System.nanoTime();
+            DameradLevensteinRecursion.getEditDistance(stringSource, stringDestination);
+            time_ending = System.nanoTime();
+            resultTimeDamerad += time_ending - time_begin;
+        }
+
+        System.out.println("Levenstein Recursion: " + resultTimeLevenstein / mesurmentNumber);
+        System.out.println("Damerad Recursion: " + resultTimeDamerad / mesurmentNumber);
+    }
+
+    static long getMemory() {
+        Runtime runtime = Runtime.getRuntime();
+        return runtime.totalMemory() - runtime.freeMemory();
+    }
+
+    static void memoryChecker() {
+        long memory_start, memory_end;
+        long resultMemory;
+
+        String resultString = "";
+        String stringSource;
+        String stringDestination;
+        int stringSize = 3;
+
+        while (stringSize <= 1000) {
+            resultMemory = 0;
+            resultString = "" + stringSize + " ";
+
+            stringSource = generateRandomString(stringSize);
+            stringDestination = generateRandomString(stringSize);
+
+            memory_start = getMemory();
+            LevenstainMatrix.getEditDistance(stringSource, stringDestination);
+            memory_end = getMemory();
+            resultMemory = memory_end - memory_start;
+            resultString += "Levenstein Matrix: " + resultMemory + "\t";
+
+            memory_start = getMemory();
+            DameradLevenstein.getEditDistance(stringSource, stringDestination);
+            memory_end = getMemory();
+            resultMemory = memory_end - memory_start;
+            resultString += "Damerad Levenstein Matrix: " + resultMemory + "\t";
+
+            System.out.println(resultString);
+
+            stringSize += 50;
+        }
+    }
+
+    static long convertBytesToMegaBytes(long bytes) {
+        return bytes / 1048576;
+    }
+
 }

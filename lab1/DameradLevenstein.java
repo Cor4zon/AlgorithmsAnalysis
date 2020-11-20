@@ -1,10 +1,5 @@
-package com.company;
-
 public class DameradLevenstein {
-    public static int calculateDistance(CharSequence stringOne, CharSequence stringTwo) {
-        if (stringOne == null || stringTwo == null) {
-            throw new IllegalArgumentException("Parameter must not be null");
-        }
+    public static int getEditDistance(String stringOne, String stringTwo) {
 
         int stringOneLength = stringOne.length();
         int stringTwoLength = stringTwo.length();
