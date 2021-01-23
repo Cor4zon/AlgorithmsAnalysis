@@ -2,6 +2,8 @@
  
 USEFUL LINKS
 
+   [Java Concurrency](https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html)
+
   
   [ Введение в анализ сложности алгоритмов 1 ](https://habr.com/ru/post/196560/)
 
